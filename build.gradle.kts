@@ -35,3 +35,23 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
+
+publishing {
+    repositories {
+        maven {
+            name = "KotlinMultiplatfromProject"
+            url = uri("https://maven.pkg.github.com/vivek-modi/KotlinMultiplatfromProject")
+            credentials {
+                username = "vivek-modi"
+                password = "abc"
+            }
+        }
+    }
+    publications.withType<MavenPublication> {
+        artifactId = if (name == "kotlinmultiplatfromroject") {
+            artifactId
+        } else {
+            "$artifactId-$name"
+        }
+    }
+}
