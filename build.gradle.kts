@@ -4,8 +4,9 @@ plugins {
     id("maven-publish")
 }
 
-group = "me.vmodi"
-version = "1.0.0"
+val libraryVersion = "0.0.1"
+var libraryGroup = "com.vivek"
+var libraryArtifactId = "kmm-module"
 
 repositories {
     google()
@@ -36,22 +37,22 @@ android {
 }
 
 publishing {
-    repositories {
-        maven {
-            name = "KotlinMultiplatfromProject"
-            url = uri("https://maven.pkg.github.com/vivek-modi/kotlinmultiplatfromproject")
-            credentials {
-                username = "vivek-modi"
-                password = "abc"
-            }
+    publications {
+        group = libraryGroup
+        publications.withType<MavenPublication> {
+            groupId = libraryGroup
+            artifactId = libraryArtifactId
+            version = libraryVersion
         }
-    }
-    publications.withType<MavenPublication> {
-        println(artifactId)
-        artifactId = if (name == "KotlinMultiplatfromProject") {
-            artifactId.toLowerCase()
-        } else {
-            "$artifactId-$name".toLowerCase()
+
+        repositories {
+            maven {
+                url = uri("https://maven.pkg.github.com/vivek-modi/kotlinmultiplatfromproject")
+                credentials {
+                    username = (System.getenv("GITHUB_USER") ?: project.properties["GITHUB_USER"]).toString()
+                    password = (System.getenv("GITHUB_PERSONAL_ACCESS_TOKEN") ?: project.properties["GITHUB_PERSONAL_ACCESS_TOKEN"]).toString()
+                }
+            }
         }
     }
 }

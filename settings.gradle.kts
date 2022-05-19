@@ -12,5 +12,5 @@ pluginManagement {
         }
     }
 }
-rootProject.name = "KotlinMultiplatfromProject"
+rootProject.name = "kotlinproject"
 
