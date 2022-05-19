@@ -1,0 +1,1 @@
+fun getMessage() = "Hello World"
