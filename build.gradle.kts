@@ -13,7 +13,6 @@ repositories {
 }
 
 kotlin {
-    android()
     android {
         publishLibraryVariants("release", "debug")
     }
@@ -40,7 +39,7 @@ publishing {
     repositories {
         maven {
             name = "KotlinMultiplatfromProject"
-            url = uri("https://maven.pkg.github.com/vivek-modi/KotlinMultiplatfromProject")
+            url = uri("https://maven.pkg.github.com/vivek-modi/kotlinmultiplatfromproject")
             credentials {
                 username = "vivek-modi"
                 password = "abc"
@@ -48,10 +47,11 @@ publishing {
         }
     }
     publications.withType<MavenPublication> {
-        artifactId = if (name == "kotlinmultiplatfromroject") {
-            artifactId
+        println(artifactId)
+        artifactId = if (name == "KotlinMultiplatfromProject") {
+            artifactId.toLowerCase()
         } else {
-            "$artifactId-$name"
+            "$artifactId-$name".toLowerCase()
         }
     }
 }
