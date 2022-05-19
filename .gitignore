@@ -1,2 +1,69 @@
-# Project exclude paths
-/.gradle/
+# Compiled source #
+###################
+*.class
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+.externalNativeBuild
+.directory
+node_modules
+gen
+*.iml
+
+# Editor Files #
+################
+*~
+*.swp
+
+# Gradle Files #
+################
+.gradle
+.gradletasknamecache
+.m2
+
+# Build output directies
+target/
+build/
+captures/
+
+# IntelliJ specific files/directories
+out
+.idea
+*.ipr
+*.iws
+*.iml
+atlassian-ide-plugin.xml
+
+# AndroidStudio specific files/directories
+local.properties
+android/mobile/release/*
+
+# iOS specific files/directories
+ios.xcworkspace/
+
+# Eclipse specific files/directories
+.classpath
+.project
+.settings
+.metadata
+bin/
