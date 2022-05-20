@@ -1,1 +1,1 @@
-fun getMessage() = "Hello World"
+expect val message: String
