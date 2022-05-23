@@ -5,7 +5,7 @@ plugins {
     id("maven-publish")
 }
 
-val libraryVersion = "0.0.3"
+val libraryVersion = "0.0.4"
 var libraryGroup = "com.vivek"
 var libraryArtifactId = "kmm-module"
 
@@ -19,32 +19,23 @@ kotlin {
         publishLibraryVariants("release", "debug")
     }
     cocoapods {
-        // Required properties
-        // Specify the required Pod version here. Otherwise, the Gradle project version is used.
-        version = "0.0.1"
-        summary = "Some description for a Kotlin/Native module"
-        homepage = "Link to a Kotlin/Native module homepage"
-
-        // Optional properties
-        // Configure the Pod name here instead of changing the Gradle project name
-        name = "MyCocoaPod"
-
+        version = libraryVersion
+        name = "VivekMyCocoaPod"
         framework {
-            // Required properties
-            // Framework name configuration. Use this property instead of deprecated 'frameworkName'
             baseName = "MyFramework"
-
-            // Optional properties
-            // Dynamic framework support
             isStatic = false
-
         }
     }
     iosX64()
     iosArm64()
     iosSimulatorArm64()
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting{
+            dependencies {
+                implementation("io.insert-koin:koin-core:3.2.0")
+                implementation("io.insert-koin:koin-android:3.2.0")
+            }
+        }
         val androidMain by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -91,7 +82,7 @@ publishing {
         }
         publications.withType<MavenPublication> {
             println(artifactId)
-            artifactId = if (name == "kotlinmultiplatfromproject") {
+            artifactId = if (name == libraryArtifactId) {
                 artifactId.toLowerCase()
             } else {
                 "$artifactId-$name".toLowerCase()
