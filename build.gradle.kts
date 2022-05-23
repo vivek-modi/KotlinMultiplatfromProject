@@ -5,7 +5,7 @@ plugins {
     id("maven-publish")
 }
 
-val libraryVersion = "0.0.4"
+val libraryVersion = "0.0.5"
 var libraryGroup = "com.vivek"
 var libraryArtifactId = "kmm-module"
 
