@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'VivekMyCocoaPod'
-    spec.version                  = '0.0.4'
+    spec.version                  = '0.0.1'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                 fi
                 set -ev
                 REPO_ROOT="$PODS_TARGET_SRCROOT"
-                "$REPO_ROOT/../../../../private/var/folders/bh/nx_31y193190m5vz8sd9y6jm0000gq/T/wrap2loc/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
+                "$REPO_ROOT/../../../../private/var/folders/bh/nx_31y193190m5vz8sd9y6jm0000gq/T/wrap8loc/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
                     -Pkotlin.native.cocoapods.configuration="$CONFIGURATION"

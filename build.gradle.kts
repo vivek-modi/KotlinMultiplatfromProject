@@ -5,7 +5,7 @@ plugins {
     id("maven-publish")
 }
 
-val libraryVersion = "0.0.5"
+val libraryVersion = "0.0.1"
 var libraryGroup = "com.vivek"
 var libraryArtifactId = "kmm-module"
 
@@ -30,10 +30,9 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
     sourceSets {
-        val commonMain by getting{
+        val commonMain by getting {
             dependencies {
                 implementation("io.insert-koin:koin-core:3.2.0")
-                implementation("io.insert-koin:koin-android:3.2.0")
             }
         }
         val androidMain by getting
